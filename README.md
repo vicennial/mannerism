@@ -33,7 +33,7 @@ Then tell your agent: **learn my voice**.
 
 `mannerism connect` with no argument lists every harness it knows and which look installed on this machine.
 `mannerism connect <name>` without `--write` prints the exact snippet first, so you can check it before it touches
-anything. Config paths, what is tested and known rough edges per harness: [docs/harnesses.md](docs/harnesses.md).
+anything. Config paths, what is tested and known rough edges per harness: [docs/harnesses.md](https://github.com/vicennial/mannerism/blob/main/docs/harnesses.md).
 
 </details>
 
@@ -69,7 +69,7 @@ Saying "learn my voice" starts a first pass that takes about a minute and asks y
 
 After that, each new session syncs what you wrote since the last one. The Claude Code plugin does this with hooks. For
 Codex, `mannerism connect codex --write` writes only the MCP entry and the skill, so no Codex Stop or SessionEnd hook
-is installed today. Details: [sessions in throwaway config directories](docs/sources.md#sessions-in-throwaway-config-directories).
+is installed today. Details: [sessions in throwaway config directories](https://github.com/vicennial/mannerism/blob/main/docs/sources.md#sessions-in-throwaway-config-directories).
 
 ## What it learns from
 
@@ -78,11 +78,11 @@ commit messages, Markdown and Obsidian notes and GitHub comments. Posts and mess
 X, once you configure them. Exports from ChatGPT, Telegram, WhatsApp, X, email (mbox) and iMessage, Wispr Flow
 dictation, and files or plugins of your own.
 
-The full table (how each source is found, and how well it is tested) is in [docs/sources.md](docs/sources.md), with
-setup notes for [Slack](docs/sources.md#slack).
-More: [your own sources](docs/custom-sources.md), [host sources](docs/host-sources.md) (Hermes) and
-[WhatsApp databases](docs/whatsapp-db.md). To keep private writing on one host and use only published examples from
-another, see [public-only remote access](docs/public-service.md).
+The full table (how each source is found, and how well it is tested) is in [docs/sources.md](https://github.com/vicennial/mannerism/blob/main/docs/sources.md), with
+setup notes for [Slack](https://github.com/vicennial/mannerism/blob/main/docs/sources.md#slack).
+More: [your own sources](https://github.com/vicennial/mannerism/blob/main/docs/custom-sources.md), [host sources](https://github.com/vicennial/mannerism/blob/main/docs/host-sources.md) (Hermes) and
+[WhatsApp databases](https://github.com/vicennial/mannerism/blob/main/docs/whatsapp-db.md). To keep private writing on one host and use only published examples from
+another, see [public-only remote access](https://github.com/vicennial/mannerism/blob/main/docs/public-service.md).
 
 ## What your agent gets
 
@@ -117,7 +117,7 @@ mannerism ui
 
 opens a read-only page in your browser: your voice cards (each habit with its count and a real example), the rules
 learned from your edits, and a few insights. It also has an **Is this you?** review for groups of stored text. The page
-listens on 127.0.0.1 only and loads nothing from the network. Details: [docs/ui.md](docs/ui.md).
+listens on 127.0.0.1 only and loads nothing from the network. Details: [docs/ui.md](https://github.com/vicennial/mannerism/blob/main/docs/ui.md).
 
 ## Control what it reads
 
@@ -125,7 +125,7 @@ If agents, relays or scripts also type into your sessions (a second Claude accou
 same status message every time), run `mannerism scan` before the first sync. It prints what a sync would read, grouped
 by source, account and project, and stores nothing. Exclusion rules (`mannerism exclude add ...`) keep text out for
 good, and text that looks machine-typed is held back from your cards until you say it is yours. See
-[docs/exclusions.md](docs/exclusions.md).
+[docs/exclusions.md](https://github.com/vicennial/mannerism/blob/main/docs/exclusions.md).
 
 ## Privacy
 
@@ -183,7 +183,7 @@ mannerism forget --source S | --drafts | --all | --where <same flags as exclude 
 mannerism mcp                      run the MCP server (stdio)
 ```
 
-Design notes and internals: [docs/design.md](docs/design.md).
+Design notes and internals: [docs/design.md](https://github.com/vicennial/mannerism/blob/main/docs/design.md).
 
 ## Credits
 

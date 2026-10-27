@@ -9,7 +9,7 @@
       "name": "mannerism",
       "source": "./",
       "description": "Your agents write in your voice: style cards, real examples and edit-learned rules from text you already wrote.",
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   ]
 }
