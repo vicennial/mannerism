@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'uvx --offline mannerism hook session-start 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'uvx --offline mannerism hook prompt 2>/dev/null || true'",
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'uvx --offline mannerism hook stop 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'uvx --offline mannerism hook session-end 2>/dev/null || true'",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}

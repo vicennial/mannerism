@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mannerism"
+version = "0.1.0"
+description = "Your agents write in your voice: style cards, real examples and edit-learned rules from text you already wrote"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "vicennial" }]
+keywords = ["mcp", "claude-code", "codex", "writing-style", "voice", "agents"]
+dependencies = ["mcp>=1.29,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+mannerism = "mannerism.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vicennial/mannerism"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mannerism"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"skills/mannerism/SKILL.md" = "mannerism/skills/mannerism/SKILL.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["smoke: starts the installed package as a subprocess (MCP over stdio)"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501", "B905"]  # long prose strings; zip() over equal-length lists by construction

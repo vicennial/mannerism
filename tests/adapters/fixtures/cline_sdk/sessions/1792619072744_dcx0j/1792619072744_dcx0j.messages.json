@@ -1,0 +1,116 @@
+{
+ "version": 1,
+ "updated_at": "2026-10-21T21:44:50.618Z",
+ "agent": "lead",
+ "sessionId": "1792619072744_dcx0j",
+ "origin": {
+  "source": "cli",
+  "mode": "user",
+  "sessionId": "1792619072744_dcx0j",
+  "version": "3.0.73"
+ },
+ "messages": [
+  {
+   "id": "be771cb3-9a9f-4680-95e2-d38dd818886d",
+   "role": "user",
+   "content": [
+    {
+     "type": "text",
+     "text": "<user_input mode=\"act\">hello there, when does the first ferry leave?</user_input>"
+    }
+   ],
+   "ts": 1792619073014
+  },
+  {
+   "id": "msg_PCysnmL3",
+   "role": "assistant",
+   "content": [
+    {
+     "type": "text",
+     "text": "Sure. The ferry timetable lives in schedule.txt, and the first sailing leaves at nine."
+    }
+   ],
+   "ts": 1792619073075,
+   "modelInfo": {
+    "id": "mock-model",
+    "provider": "openai-compatible"
+   },
+   "metrics": {
+    "inputTokens": 12,
+    "outputTokens": 9,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0
+   }
+  },
+  {
+   "id": "8559b4cc-aa0e-4214-bfa4-b96352dc03be",
+   "role": "user",
+   "content": [
+    {
+     "type": "text",
+     "text": "<user_input mode=\"act\">ok thanks, can you look at [file: schedule.txt]  and tell me the second sailing? keep it short pls</user_input>"
+    },
+    {
+     "type": "file",
+     "path": "/home/jo.dev/proj/schedule.txt",
+     "content": "Ferry timetable: 09:00, 11:30.\n"
+    }
+   ],
+   "ts": 1792619083575
+  },
+  {
+   "id": "msg_w1_Hafcc",
+   "role": "assistant",
+   "content": [
+    {
+     "type": "text",
+     "text": "Done. I renamed the helper and kept the old name as an alias."
+    }
+   ],
+   "ts": 1792619083651,
+   "modelInfo": {
+    "id": "mock-model",
+    "provider": "openai-compatible"
+   },
+   "metrics": {
+    "inputTokens": 12,
+    "outputTokens": 9,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0
+   }
+  },
+  {
+   "id": "fe90e799-da52-4288-81da-d5aa9d343f0a",
+   "role": "user",
+   "content": [
+    {
+     "type": "text",
+     "text": "<user_input mode=\"plan\"><mode_notice>The user switched from act mode to plan mode before sending this message.</mode_notice>\nnice, that is all - cheers</user_input>"
+    }
+   ],
+   "ts": 1792619090582
+  },
+  {
+   "id": "msg_l1lPPcrX",
+   "role": "assistant",
+   "content": [
+    {
+     "type": "text",
+     "text": "Understood. I will keep the summary short and plain."
+    }
+   ],
+   "ts": 1792619090607,
+   "modelInfo": {
+    "id": "mock-model",
+    "provider": "openai-compatible"
+   },
+   "metrics": {
+    "inputTokens": 12,
+    "outputTokens": 9,
+    "cacheReadTokens": 0,
+    "cacheWriteTokens": 0
+   }
+  }
+ ],
+ "system_prompt": "(elided from the fixture)"
+}

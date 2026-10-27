@@ -1,0 +1,48 @@
+{
+ "version": 1,
+ "session_id": "1792619072744_dcx0j",
+ "source": "cli",
+ "pid": 1,
+ "started_at": "2026-10-21T21:44:32.748Z",
+ "ended_at": "2026-10-21T21:44:58.663Z",
+ "exit_code": 0,
+ "status": "completed",
+ "interactive": false,
+ "provider": "openai-compatible",
+ "model": "mock-model",
+ "cwd": "/home/jo.dev/proj",
+ "workspace_root": "/home/jo.dev/proj",
+ "team_name": "team-OBrC8",
+ "enable_tools": true,
+ "enable_spawn": true,
+ "enable_teams": true,
+ "prompt": "hello there, when does the first ferry leave?",
+ "metadata": {
+  "sessionHistoryOrigin": {
+   "mode": "user",
+   "version": "3.0.73"
+  },
+  "title": "hello there, when does the first ferry leave?",
+  "totalCost": 0,
+  "aggregatedAgentsCost": 0,
+  "usage": {
+   "inputTokens": 36,
+   "outputTokens": 27,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "totalCost": 0
+  },
+  "aggregateUsage": {
+   "inputTokens": 36,
+   "outputTokens": 27,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "totalCost": 0
+  },
+  "terminal_marker": "failed_external_process_exit",
+  "terminal_marker_at": "2026-10-21T21:44:55.549Z",
+  "terminal_marker_pid": 3368790,
+  "terminal_marker_source": "stale_session_reconciler"
+ },
+ "messages_path": "/home/jo.dev/.cline/data/sessions/1792619072744_dcx0j/1792619072744_dcx0j.messages.json"
+}

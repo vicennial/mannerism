@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.vicennial/mannerism",
+  "title": "mannerism",
+  "description": "Makes your agents write in your voice, using your own past writing and edits. Local only.",
+  "websiteUrl": "https://github.com/vicennial/mannerism",
+  "repository": {
+    "url": "https://github.com/vicennial/mannerism",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "mannerism",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "packageArguments": [
+        { "type": "positional", "value": "mcp" }
+      ],
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

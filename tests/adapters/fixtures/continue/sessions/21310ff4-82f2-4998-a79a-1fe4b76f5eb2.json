@@ -1,0 +1,104 @@
+{
+  "sessionId": "21310ff4-82f2-4998-a79a-1fe4b76f5eb2",
+  "title": "Untitled Session",
+  "workspaceDirectory": "/home/jo.dev/proj",
+  "history": [
+    {
+      "message": {
+        "role": "user",
+        "content": "hello there, when does the first ferry leave?"
+      },
+      "contextItems": [],
+      "editorState": "hello there, when does the first ferry leave?"
+    },
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Sure. The ferry timetable lives in schedule.txt, and the first sailing leaves at nine.",
+        "usage": {
+          "prompt_tokens": 12,
+          "completion_tokens": 9,
+          "total_tokens": 21,
+          "model": "mock-model",
+          "cost_cents": 0
+        }
+      },
+      "contextItems": []
+    },
+    {
+      "message": {
+        "role": "user",
+        "content": "ok thanks, can you look at @schedule.txt and tell me the second sailing? keep it short pls"
+      },
+      "contextItems": [],
+      "editorState": "ok thanks, can you look at @schedule.txt and tell me the second sailing? keep it short pls"
+    },
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Done. I renamed the helper and kept the old name as an alias.",
+        "usage": {
+          "prompt_tokens": 12,
+          "completion_tokens": 9,
+          "total_tokens": 21,
+          "model": "mock-model",
+          "cost_cents": 0
+        }
+      },
+      "contextItems": []
+    },
+    {
+      "message": {
+        "role": "user",
+        "content": "/help"
+      },
+      "contextItems": [],
+      "editorState": "/help"
+    },
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Understood. I will keep the summary short and plain.",
+        "usage": {
+          "prompt_tokens": 12,
+          "completion_tokens": 9,
+          "total_tokens": 21,
+          "model": "mock-model",
+          "cost_cents": 0
+        }
+      },
+      "contextItems": []
+    },
+    {
+      "message": {
+        "role": "user",
+        "content": "nice, that is all - cheers"
+      },
+      "contextItems": [],
+      "editorState": "nice, that is all - cheers"
+    },
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Here is the short version: it works, and the tests pass.",
+        "usage": {
+          "prompt_tokens": 12,
+          "completion_tokens": 9,
+          "total_tokens": 21,
+          "model": "mock-model",
+          "cost_cents": 0
+        }
+      },
+      "contextItems": []
+    }
+  ],
+  "usage": {
+    "totalCost": 0.00012,
+    "promptTokens": 48,
+    "completionTokens": 36,
+    "promptTokensDetails": {
+      "cachedTokens": 0,
+      "cacheWriteTokens": 0
+    }
+  }
+}

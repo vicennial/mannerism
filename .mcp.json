@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mannerism": {
+      "command": "uvx",
+      "args": ["mannerism", "mcp"]
+    }
+  }
+}

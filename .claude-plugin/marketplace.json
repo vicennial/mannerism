@@ -1,0 +1,15 @@
+{
+  "name": "mannerism",
+  "description": "Write in your own voice with Claude Code, Codex, Gemini and any MCP agent.",
+  "owner": {
+    "name": "vicennial"
+  },
+  "plugins": [
+    {
+      "name": "mannerism",
+      "source": "./",
+      "description": "Your agents write in your voice: style cards, real examples and edit-learned rules from text you already wrote.",
+      "version": "0.1.0"
+    }
+  ]
+}

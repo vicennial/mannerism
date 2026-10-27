@@ -1,0 +1,12 @@
+{
+  "name": "mannerism",
+  "version": "0.1.0",
+  "description": "Your agents write in your voice: style cards, real examples and edit-learned rules from text you already wrote.",
+  "mcpServers": {
+    "mannerism": {
+      "command": "uvx",
+      "args": ["mannerism", "mcp"]
+    }
+  },
+  "contextFileName": "skills/mannerism/SKILL.md"
+}

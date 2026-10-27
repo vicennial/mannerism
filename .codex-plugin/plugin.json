@@ -1,0 +1,22 @@
+{
+  "name": "mannerism",
+  "version": "0.1.0",
+  "description": "Your agents write in your voice: style cards, real examples and edit-learned rules from text you already wrote.",
+  "author": { "name": "vicennial" },
+  "homepage": "https://github.com/vicennial/mannerism",
+  "repository": "https://github.com/vicennial/mannerism",
+  "license": "Apache-2.0",
+  "keywords": ["writing-style", "voice", "mcp", "skill", "personalization"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "mannerism",
+    "shortDescription": "Write in your own voice",
+    "longDescription": "Learns how you write from text you already wrote and from your edits, then gives your agent a style card, real examples and learned rules before it writes in your name. Everything is stored on your machine. No new service, no API key.",
+    "developerName": "vicennial",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/vicennial/mannerism",
+    "defaultPrompt": ["Learn my voice"]
+  }
+}
