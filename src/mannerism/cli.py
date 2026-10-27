@@ -877,15 +877,6 @@ def cmd_remote(ns) -> int:
     return EXIT_OK
 
 
-def cmd_import_legacy(ns) -> int:
-    from . import legacy
-    try:
-        dump_json(legacy.import_voicekit(Path(ns.path), apply=ns.apply))
-    except (OSError, ValueError, RuntimeError) as exc:
-        raise CliError(str(exc)) from exc
-    return EXIT_OK
-
-
 def _known_harness(name: str) -> str:
     from . import connect
     if name not in connect.HARNESSES:
@@ -1117,10 +1108,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = add("remote", cmd_remote, "run a public-only stdio client over a loopback tunnel", json_flag=False)
     p.add_argument("action", choices=["mcp"])
-
-    p = add("import-voicekit", cmd_import_legacy, "preview or apply a local legacy Voice Kit migration")
-    p.add_argument("path")
-    p.add_argument("--apply", action="store_true", help="write to the Mannerism destination; default is preview only")
 
     p = add("ui", cmd_ui, "open your voice cards and insights in the browser (read-only, 127.0.0.1)", json_flag=False)
     p.add_argument("--port", type=_port, default=0, help="port to listen on (default: a random free one)")

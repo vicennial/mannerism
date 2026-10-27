@@ -120,3 +120,37 @@ def test_tx_rolls_back(home):
     except sqlite3.Error:
         pass
     assert store.get_meta(con, "x") is None
+
+
+def _legacy_tables(con, unit_id):
+    """Corpora imported from older tools keep archive tables; erasure must reach them."""
+    con.execute("CREATE TABLE legacy_voicekit_rows(source_db TEXT,source_table TEXT,source_key TEXT,"
+                "payload_json TEXT,target_id TEXT)")
+    con.execute("CREATE TABLE legacy_voicekit_cards(name TEXT)")
+    con.execute("INSERT INTO legacy_voicekit_rows VALUES ('corpus','units','k','{}',?)", (unit_id,))
+    con.execute("INSERT INTO legacy_voicekit_cards VALUES ('card')")
+    con.execute("INSERT INTO meta(key,value) VALUES ('legacy:voicekit:v1','1')")
+
+
+def test_forget_erases_legacy_archive_tables():
+    con = store.connect()
+    unit = u("1")
+    store.write_units(con, "s1", "t", [unit], {})
+    _legacy_tables(con, unit.unit_id)
+    store.forget_rows(con)
+    assert con.execute("SELECT count(*) FROM legacy_voicekit_rows").fetchone()[0] == 0
+    assert con.execute("SELECT count(*) FROM legacy_voicekit_cards").fetchone()[0] == 0
+    assert store.get_meta(con, "legacy:voicekit:v1") is None
+
+
+def test_deleting_a_unit_erases_its_legacy_archive_rows():
+    con = store.connect()
+    unit = u("1")
+    store.write_units(con, "s1", "t", [unit], {})
+    _legacy_tables(con, unit.unit_id)
+    con.execute("INSERT INTO legacy_voicekit_rows VALUES ('corpus','units','other','{}','unrelated')")
+    with store.tx(con):
+        store.delete_unit_rows(con, [unit.unit_id])
+    assert [r[0] for r in con.execute("SELECT target_id FROM legacy_voicekit_rows")] == ["unrelated"]
+    assert con.execute("SELECT count(*) FROM legacy_voicekit_cards").fetchone()[0] == 0
+    assert store.get_meta(con, "legacy:voicekit:v1") is None

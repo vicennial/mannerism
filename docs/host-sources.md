@@ -81,7 +81,7 @@ Imported explicit AI exclusions and existing linked edit evidence are retained.
 For unchanged text, capture preserves reviewed metadata and never replaces
 `public=false` with publication provenance or learns public edits from that text.
 For changed text, capture builds fresh content metadata and drops old privacy
-flags and the `legacy_voicekit` raw payload. It carries only a conservative
+flags and the imported legacy metadata that older corpora keep. It carries only a conservative
 boolean AI exclusion from the previous metadata, not the obsolete raw text.
 Existing non-public register labels prevent public edit learning. Invalid Unicode
 and post text over 256,000 UTF-8 bytes are skipped.

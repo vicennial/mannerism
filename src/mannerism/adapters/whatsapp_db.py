@@ -182,7 +182,7 @@ class WhatsAppDB:
 
         for row_id, _, from_me, key, timestamp, mtype, text, sender, jid, server, members, jid_row, fwd, system, revoked in rows:
             if thread is None:
-                # Preserve the legacy pseudonym too; no dependency on the old package.
+                # Fixed salt: keeps thread IDs identical to those already stored. Do not change it.
                 thread = hash_ref(str(jid), salt="voice-kit")
                 is_group = server == "g.us"
                 member_count = (participants.get(jid_row) or members or None) if is_group else 2

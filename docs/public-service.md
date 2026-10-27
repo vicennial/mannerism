@@ -65,6 +65,6 @@ existing records or rewind a cursor if changed. Choose the boundary from verifie
 legacy coverage; do not invent it from an installation date. Sources that retain
 the same stable identity do not need this boundary.
 
-For legacy conversion see [legacy-import.md](legacy-import.md). For local own-post
+For local own-post
 capture and Hermes configuration see [host-sources.md](host-sources.md); for an
 already-decrypted WhatsApp database see [whatsapp-db.md](whatsapp-db.md).

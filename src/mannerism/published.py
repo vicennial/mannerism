@@ -265,7 +265,7 @@ def capture_posts(posts_path: str | Path, candidates_paths=(), *, con: sqlite3.C
                         # Publication provenance does not undo the importer's privacy review.
                         unit.meta["public"] = meta["public"] is True
                 # Changed text gets fresh content metadata. In particular, do not
-                # restore legacy_voicekit's obsolete raw text after store audit erasure.
+                # restore the obsolete legacy raw text under meta_json.legacy_voicekit after store audit erasure.
                 if meta.get("ai"):
                     unit.meta["ai"] = True
             held = bool(unit.held or prior_held)

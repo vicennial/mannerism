@@ -3,7 +3,7 @@
 `WhatsAppDB` reads explicitly configured, already-decrypted Android `msgstore`
 SQLite files. Its source name and every emitted unit's source are `whatsapp_db`.
 It does not search folders, inspect backup inboxes, read keys, decrypt files,
-run commands, or depend on Voice Kit. The source is in the built-in adapter
+run commands, or depend on another package. The source is in the built-in adapter
 registry; decrypting a backup is not part of Mannerism and stays with the host.
 
 Configure this source with:
@@ -58,33 +58,31 @@ masked `agent` context. A thread with this header and no incoming party is
 classified `agent`; ordinary direct chats are `close`; `g.us` chats are `group`.
 The same classification sets the default register.
 
-## Identity contract with the legacy importer
+## Identity contract
 
-Root confirmed this contract: the importer maps legacy source `whatsapp` to
-`whatsapp_db` and remaps linked unit IDs. The adapter preserves native
-`key_id` refs. A singleton uses `key_id`; a burst uses `first_key..last_key`.
-Mannerism computes its unit ID from `whatsapp_db` and that ref. The importer
-must preserve refs exactly because preserving refs under a different source
-name does not deduplicate units.
+The adapter preserves native `key_id` refs. A singleton uses `key_id`; a burst
+uses `first_key..last_key`. Mannerism computes its unit ID from `whatsapp_db`
+and that ref, so a corpus that already holds these units deduplicates them.
 
-Thread IDs preserve the legacy SHA-256 pseudonym with salt `voice-kit` and
-the first 16 hexadecimal characters. The literal compatibility salt does not
-import or invoke the legacy package. Raw JIDs, sender IDs and subjects are not
+Thread IDs are a SHA-256 pseudonym of the chat JID, truncated to the first 16
+hexadecimal characters, with the fixed salt `voice-kit`. The salt is a stable
+constant that keeps thread IDs the same as in existing corpora; do not change it.
+Raw JIDs, sender IDs and subjects are not
 included in metadata. A missing native `key_id` uses `row:<thread-hash>:<row-id>`;
-such malformed rows have no reliable legacy identity. Normal native keys must
-be unique across the configured account snapshots, as in the legacy extractor.
+such malformed rows have no reliable stable identity. Normal native keys must
+be unique across the configured account snapshots.
 
 Messages sort by chat, timestamp and row ID. Consecutive own messages merge
 within 120 seconds of the last retained own message. Consecutive identical
 texts are treated as resends; they do not advance that timestamp or the last
-retained ref. Numeric mentions become `@[user]` before merging, matching the
-legacy extractor. Other masking follows merging, so two different texts that
+retained ref. Numeric mentions become `@[user]` before merging, as in earlier
+versions of this source. Other masking follows merging, so two different texts that
 mask to the same text keep their original burst refs.
 
 An incoming message, including textless media, breaks a burst. A known bridge
 reply also breaks it. Own forwarded messages, voice notes, unsupported media,
 system messages and revoked messages do not break bursts. Own forwarded text
-can appear as masked context. These boundary rules preserve legacy refs even
+can appear as masked context. These boundary rules keep refs stable even
 when an incremental read appends to an existing burst.
 
 ## Privacy and incremental refresh
@@ -112,10 +110,10 @@ The engine must consume `_delete_refs` through its existing transactional
 delete mechanism, then persist the cursor with the changed units.
 
 On the first adapter read there is no previous cursor inventory to delete.
-Root/importer must reconcile any imported legacy refs that are already absent
+The host must reconcile any previously stored refs that are already absent
 from the first snapshot. Failed reads leave the saved inventory intact.
 Cursor size grows with the number of units; each refresh reads the whole
 snapshot to detect edits and revocations reliably.
 
 Tests in `tests/adapters/test_whatsapp_db.py` create synthetic SQLite fixtures.
-They need no private backups, keys, messages, or legacy package.
+They need no private backups, keys or messages.

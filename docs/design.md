@@ -488,7 +488,7 @@ invalidates packets; marks agent cards built on that data stale. It cannot recal
 only one sync worker runs (non-blocking lock); detached workers close all std streams. Hook latency is measured in
 tests.
 
-**Support matrix.** The README lists each source as *tested on real data* or *beta (synthetic fixtures only)*. In
+**Support matrix.** [sources.md](sources.md) lists each source as *tested on real data* or *beta (synthetic fixtures only)*. In
 v0.1 the real-data set is the sources the author can validate locally.
 
 ### R3 fixes (2026-10-21)
@@ -716,8 +716,6 @@ Features added after this design, each documented where it lives:
   [host-sources.md](host-sources.md), and `whatsapp_db` (an already-decrypted Android `msgstore.db`) in
   [whatsapp-db.md](whatsapp-db.md). Both are `export`-tier sources with a refresh that can delete units a source
   later removes.
-- **Voice Kit import.** `mannerism.legacy.import_voicekit` converts a legacy Voice Kit corpus, its drafts and cards
-  into a Mannerism data directory, with a dry run first: [legacy-import.md](legacy-import.md).
 - **Public-only remote service.** `mannerism public build` / `public serve` expose a public-only projection of the
   bank over a loopback HTTP endpoint, and a remote client mode uses it so a second host never holds the private
   corpus: [public-service.md](public-service.md).
